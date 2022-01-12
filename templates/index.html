@@ -27,6 +27,8 @@
         .header {
             margin-top: 30px;
             margin-bottom: 30px;
+            display: flex;
+            justify-content: space-between;
         }
         .main {
             width: 100%;
@@ -37,12 +39,10 @@
         }
         .title {
             width: 80%;
-            float: left;
         }
-        .action {
-            width: 10%;
+        .actions {
+            width: 20%;
             margin-top: 22px;
-            float: left;
         }
     </style>
 </head>
@@ -50,14 +50,19 @@
 <body>
     <div class="header">
         <h1 class="title">Podcast List</h1>
-        <div class="action">
-            <a href="/podcast/add"><img src="/static/add.svg" style="width:32px;height:32px;"/></a>
+        <div class="actions">
+            <div class="action">
+                <a href="/podcast/add"><img src="/static/add.svg" style="width:32px;height:32px;"/></a>
+            </div>
+            <div class="action">
+                <form onsubmit="refresh(); return false">
+                    <input type="image" src="/static/refresh.svg" name="refresh" style="width:32px;height:32px;" type="submit"/>
+                </form>
+            </div>
         </div>
-        <div class="action">
-            <form onsubmit="refresh(); return false">
-                <input type="image" src="/static/refresh.svg" name="refresh" style="width:32px;height:32px;" type="submit"/>
-            </form>
-        </div>
+    </div>
+    <div>
+        If you want to sync to your garmin you need to add a podcast and then you can select episodes to sync.
     </div>
     <main class="main">
         {% for podcast in podcasts %}
