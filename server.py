@@ -45,7 +45,7 @@ def require_user_id(func):
         if(request.headers.get('Authorization') != None):
             user_id = manager_podcast.user_id(
                 request.headers.get('Authorization'))
-        print("id : "+str(user_id))
+            print("id : "+str(user_id))
         elif 'session_token' in session:
             user_id = manager_podcast.user_id(session['session_token'])
 
