@@ -14,6 +14,7 @@
     "sourceMap": true,
     "inlineSources": true,
     "rootDir": "./",
+    "plugins": [{ "name": "typescript-plugin-css-modules" }],
     "incremental": true
   },
   "include": ["**/*.ts"]

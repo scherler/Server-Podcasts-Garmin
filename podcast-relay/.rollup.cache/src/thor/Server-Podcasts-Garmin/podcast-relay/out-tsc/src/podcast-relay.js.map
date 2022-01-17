@@ -1,0 +1,1 @@
+{"version":3,"file":"podcast-relay.js","sourceRoot":"","sources":["../../src/podcast-relay.ts"],"names":[],"mappings":"AAAA,OAAO,EAAE,YAAY,EAAE,MAAM,mBAAmB,CAAC;AAEjD,cAAc,CAAC,MAAM,CAAC,eAAe,EAAE,YAAY,CAAC,CAAC","sourcesContent":["import { PodcastRelay } from './PodcastRelay.js';\n\ncustomElements.define('podcast-relay', PodcastRelay);\n"]}

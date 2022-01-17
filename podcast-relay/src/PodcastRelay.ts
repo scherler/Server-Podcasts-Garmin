@@ -11,6 +11,10 @@ export class PodcastRelay extends LitElement {
   @property({ type: String }) backendUrl =
     'https://podcast-relay.herokuapp.com';
 
+  protected createRenderRoot() {
+    return this;
+  }
+
   static styles = css`
     :host {
       min-height: 100vh;
@@ -42,15 +46,6 @@ export class PodcastRelay extends LitElement {
       to {
         transform: rotate(360deg);
       }
-    }
-
-    .app-footer {
-      font-size: calc(12px + 0.5vmin);
-      align-items: center;
-    }
-
-    .app-footer a {
-      margin-left: 5px;
     }
   `;
 
@@ -127,22 +122,72 @@ export class PodcastRelay extends LitElement {
         </p>`
           : html`
               ${this.content
-                ? repeat(
-                    this.content,
-                    podcast => html`
-                      <article>
-                        <h3>${podcast.title}</h3>
-                        <div class="flex justify-center">
-                          <img
-                            alt="podcast logo"
-                            ${podcast.image_url}
-                            style="width:100px;height:100px;"
-                          />
-                          <small> ${podcast.description} </small>
+                ? html`<div class="p-3">
+                    <div class="flex justify-between">
+                      <h3>Podcast List</h3>
+                      <div class="actions flex">
+                        <div class="action cursor-pointer">
+                          <svg
+                            xmlns="http://www.w3.org/2000/svg"
+                            class="h-6 w-6"
+                            fill="none"
+                            viewBox="0 0 24 24"
+                            stroke="currentColor"
+                          >
+                            <path
+                              stroke-linecap="round"
+                              stroke-linejoin="round"
+                              stroke-width="2"
+                              d="M12 4v16m8-8H4"
+                            />
+                          </svg>
                         </div>
-                      </article>
-                    `
-                  )
+                        <div
+                          class="action cursor-pointer"
+                          @click=${this.fetchPodcasts}
+                          @keydown=${this.fetchPodcasts}
+                        >
+                          <svg
+                            xmlns="http://www.w3.org/2000/svg"
+                            class="h-5 w-5"
+                            viewBox="0 0 20 20"
+                            fill="currentColor"
+                          >
+                            <path
+                              fill-rule="evenodd"
+                              d="M4 2a1 1 0 011 1v2.101a7.002 7.002 0 0111.601 2.566 1 1 0 11-1.885.666A5.002 5.002 0 005.999 7H9a1 1 0 010 2H4a1 1 0 01-1-1V3a1 1 0 011-1zm.008 9.057a1 1 0 011.276.61A5.002 5.002 0 0014.001 13H11a1 1 0 110-2h5a1 1 0 011 1v5a1 1 0 11-2 0v-2.101a7.002 7.002 0 01-11.601-2.566 1 1 0 01.61-1.276z"
+                              clip-rule="evenodd"
+                            />
+                          </svg>
+                        </div>
+                      </div>
+                    </div>
+                    ${repeat(
+                      this.content,
+                      podcast => html`
+                        <article class="p-3">
+                          <h3>${podcast.title}</h3>
+                          <div class="flex">
+                            <img
+                              class="pr-3"
+                              alt="podcast logo"
+                              src=${podcast.image_url}
+                              style="width:100px;height:100px;"
+                            />
+                            <small> ${podcast.description} </small>
+                          </div>
+                          <ul>
+                            ${repeat(
+                              podcast.episodes,
+                              (episode: any) => html`
+                                <li>${episode.title}</li>
+                              `
+                            )}
+                          </ul>
+                        </article>
+                      `
+                    )}
+                  </div>`
                 : html`<div class="logo">
                     <img alt="open-wc logo" src=${logo} />
                   </div>`}
