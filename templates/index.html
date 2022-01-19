@@ -1,8 +1,6 @@
 <!doctype html class="h-full bg-gray-100">
 <head>
-    <script src="https://cdn.tailwindcss.com"></script>
-    <script src="/static/podcast-relay.js"></script>
-
+    
     
     <script type="text/javascript">
         function podcastRemove(id) {
@@ -21,8 +19,9 @@
                 }
             });
         }
-    </script>
+        </script>
     <title>MyPodcasts</title>
+    <link rel="stylesheet" href="/static/tailwind-6388f9c6.css">
     <link rel="icon" href="/static/favicon.ico"/>
 </head>
 
@@ -30,42 +29,42 @@
     <podcast-relay
     id="root"
     backendUrl=""
-  ></podcast-relay>
+    ></podcast-relay>
     <div class="min-h-full">
         <nav class="bg-gray-800">
-          <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="flex items-center justify-between h-16">
-              <div class="flex items-center">
-                <div class="flex-shrink-0">
-                  <img class="h-8 w-8" src="https://tailwindui.com/img/logos/workflow-mark-indigo-500.svg" alt="Workflow">
-                </div>
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="flex items-center justify-between h-16">
+                    <div class="flex items-center">
+                        <div class="flex-shrink-0">
+                            <img class="h-8 w-8" src="https://tailwindui.com/img/logos/workflow-mark-indigo-500.svg" alt="Workflow">
+                        </div>
                 <div class="hidden md:block">
                     <div class="ml-10 flex items-baseline space-x-4">
                         <!-- Current: "bg-gray-900 text-white", Default: "text-gray-300 hover:bg-gray-700 hover:text-white" -->
                         <a href="#" class="bg-gray-900 text-white px-3 py-2 rounded-md text-sm font-medium" aria-current="page">Podcast List</a>
-                      </div>
+                    </div>
                 </div>
-              </div>
+            </div>
               <div class="-mr-2 flex md:hidden">
-                <!-- Mobile menu button -->
+                  <!-- Mobile menu button -->
                 <button type="button" class="bg-gray-800 inline-flex items-center justify-center p-2 rounded-md text-gray-400 hover:text-white hover:bg-gray-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-800 focus:ring-white" aria-controls="mobile-menu" aria-expanded="false">
-                  <span class="sr-only">Open main menu</span>
-                  <!--
-                    Heroicon name: outline/menu
-      
-                    Menu open: "hidden", Menu closed: "block"
-                  -->
+                    <span class="sr-only">Open main menu</span>
+                    <!--
+                        Heroicon name: outline/menu
+                        
+                        Menu open: "hidden", Menu closed: "block"
+                    -->
                   <svg class="block h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
                   </svg>
                   <!--
                     Heroicon name: outline/x
-      
+                    
                     Menu open: "block", Menu closed: "hidden"
                   -->
                   <svg class="hidden h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
-                  </svg>
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+                    </svg>
                 </button>
               </div>
             </div>
@@ -73,23 +72,23 @@
       
           <!-- Mobile menu, show/hide based on menu state. -->
           <div class="md:hidden" id="mobile-menu">
-            <div class="px-2 pt-2 pb-3 space-y-1 sm:px-3">
+              <div class="px-2 pt-2 pb-3 space-y-1 sm:px-3">
               <!-- Current: "bg-gray-900 text-white", Default: "text-gray-300 hover:bg-gray-700 hover:text-white" -->
               <a href="#" class="bg-gray-900 text-white block px-3 py-2 rounded-md text-base font-medium" aria-current="page">Podcast List</a>
-      
+              
             </div>
             
-          </div>
-        </nav>
+        </div>
+    </nav>
       
-        <header class="bg-white shadow">
-          <div class="max-w-7xl mx-auto py-6 px-4 sm:px-6 lg:px-8 flex justify-between">
+    <header class="bg-white shadow">
+        <div class="max-w-7xl mx-auto py-6 px-4 sm:px-6 lg:px-8 flex justify-between">
             <h1 class="text-3xl font-bold text-gray-900">
                 Podcast List
             </h1>
             <div class="pt-4 pb-3">
                 <div class="flex items-center px-5">
-                  <button type="button" class="ml-auto bg-gray-100 flex-shrink-0 p-1 rounded-full text-gray-900 hover:text-gray-100 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-800 focus:ring-white">
+                    <button type="button" class="ml-auto bg-gray-100 flex-shrink-0 p-1 rounded-full text-gray-900 hover:text-gray-100 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-800 focus:ring-white">
                       <span class="sr-only">Add podcast</span>
                       <a href="/podcast/add">
                           <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -99,7 +98,7 @@
                   </button>
                   <form onsubmit="refresh(); return false">
                     <button type="submit" class="ml-auto bg-gray-100 flex-shrink-0 p-1 rounded-full text-gray-900 hover:text-gray-100 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-800 focus:ring-white">
-                      <span class="sr-only">Update</span>
+                        <span class="sr-only">Update</span>
                         <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
                             <path fill-rule="evenodd" d="M4 2a1 1 0 011 1v2.101a7.002 7.002 0 0111.601 2.566 1 1 0 11-1.885.666A5.002 5.002 0 005.999 7H9a1 1 0 010 2H4a1 1 0 01-1-1V3a1 1 0 011-1zm.008 9.057a1 1 0 011.276.61A5.002 5.002 0 0014.001 13H11a1 1 0 110-2h5a1 1 0 011 1v5a1 1 0 11-2 0v-2.101a7.002 7.002 0 01-11.601-2.566 1 1 0 01.61-1.276z" clip-rule="evenodd" />
                         </svg>
@@ -107,44 +106,29 @@
                     </form>
                 </div>
               </div>
-          </div>
+            </div>
         </header>
         <main>
           <div class="max-w-7xl mx-auto py-6 sm:px-6 lg:px-8">
-            {% for podcast in podcasts %}
-            <article class="box">
+              {% for podcast in podcasts %}
+              <article class="box">
                 <form onsubmit="podcastRemove(id); return false" id="{{ podcast['id'] }}">
                     <button>Remove Podcast</button>
                 </form>
                 <a href="/podcast/{{ podcast['id'] }}">
                     {% if podcast['image'] != None %}
-                        <img src="{{ podcast['image_url'] }}" style="width:100px;height:100px;">
+                    <img src="{{ podcast['image_url'] }}" style="width:100px;height:100px;">
                     {% else %}
-                        {{ podcast['title'] }}
+                    {{ podcast['title'] }}
                     {% endif %}
                 </a>    
-                </article>
+            </article>
             {% endfor %}
-      <!-- /End replace -->
-                
-          </div>
-        </main>
-      </div>
-    <!-- <div class="header">
-        <h1 class="title">Podcast List</h1>
-        <div class="actions">
-            <div class="action">
-                <a href="/podcast/add"><img src="/static/add.svg" style="width:32px;height:32px;"/></a>
-            </div>
-            <div class="action">
-                <form onsubmit="refresh(); return false">
-                    <input type="image" src="/static/refresh.svg" name="refresh" style="width:32px;height:32px;" type="submit"/>
-                </form>
-            </div>
+            <!-- /End replace -->
+            
         </div>
-    </div> -->
-    
-    
-
-    </body>
+    </main>
+</div>
+    <script type="module" src="/static/customElements.js"></script>
+</body>
 </html>
